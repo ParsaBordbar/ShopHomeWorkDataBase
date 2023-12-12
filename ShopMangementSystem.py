@@ -53,7 +53,7 @@ def add_category(category_id, category_name):
             Shop.commit()
             print("ezafe shod !!?")
         except  Exception as e:
-            print('nashod: ', e)
+            print('error: ', e)
 
 
 def remove_product(product_id):
@@ -64,7 +64,7 @@ def remove_product(product_id):
         Shop.commit()
         print("hazf shod !!?")
     except  Exception as e:
-        print('nashod: ', e)
+        print('error: ', e)
 
 def remove_category(category_id):
     try:
@@ -72,9 +72,8 @@ def remove_category(category_id):
         values = (category_id,)
         mycursor.execute(sql, values)
         Shop.commit()
-        print("hazf shod !!?")
     except  Exception as e:
-        print('nashod: ', e)
+        print('error: ', e)
 
 def edit_product(product_id, product_name, category_id, price, quantity):
     try:
@@ -82,9 +81,8 @@ def edit_product(product_id, product_name, category_id, price, quantity):
         values = (product_name, category_id, price, quantity, product_id)
         mycursor.execute(sql, values)
         Shop.commit()
-        print("taghir kard !!?")
     except  Exception as e:
-        print('nashod: ', e)
+        print('error: ', e)
 
 def edit_category(category_id, category_name):
     try:
@@ -92,9 +90,8 @@ def edit_category(category_id, category_name):
         values = (category_name, category_id)
         mycursor.execute(sql, values)
         Shop.commit()
-        print("taghir kard !!?")
     except  Exception as e:
-        print('nashod: ', e)
+        print('error: ', e)
 
 def search_products(name_or_category):
     values = ...
@@ -108,10 +105,9 @@ def search_products(name_or_category):
             values = (name_or_category + '%',)
         mycursor.execute(sql, values)
         result = mycursor.fetchall()
-        print("pyda shod")
         return result
     except  Exception as e:
-        print('nashod: ', e)
+        print('error: ', e)
 
 def search_categories(category_name):
     try:
@@ -122,7 +118,7 @@ def search_categories(category_name):
         print("pyda shod")
         return result
     except  Exception as e:
-        print('nashod: ', e)
+        print('error: ', e)
 
 def display_products(self):
     try:
@@ -131,7 +127,7 @@ def display_products(self):
         result = mycursor.fetchall()
         print(*result, sep='\n')
     except  Exception as e:
-        print('nashod: ', e)
+        print('error: ', e)
 
 def display_categories(self):
     try:
@@ -140,12 +136,12 @@ def display_categories(self):
         result = mycursor.fetchall()
         print(*result, sep='\n')
     except  Exception as e:
-        print('nashod: ', e)
+        print('error: ', e)
 
-def close(self):
+def close():
     try:
         mycursor.close()
         Shop.close()
-        print('tamam')
+        print('Closed')
     except  Exception as e:
-        print('nashod: ', e)
+        print('error: ', e)
